@@ -1,0 +1,23 @@
+[  
+   {  
+      "modid":"thirstybottles",
+      "name":"Thirsty Bottles",
+      "description":"A mod to make water bottles as thirsty as I am.",
+      "version":"${version}",
+      "mcversion":"${mcversion}",
+      "url":"https://github.com/Darkhax-Minecraft/Thirsty-Bottles",
+      "updateUrl":"",
+      "authorList":[  
+         "Darkhax"
+      ],
+      "credits":"Darkosto I guess",
+      "logoFile":"",
+      "screenshots":[  
+
+      ],
+      "parent":"",
+      "dependencies":[  
+
+      ]
+   }
+]
