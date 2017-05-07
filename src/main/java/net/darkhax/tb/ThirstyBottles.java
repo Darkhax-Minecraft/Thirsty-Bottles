@@ -1,6 +1,7 @@
 package net.darkhax.tb;
 
 import net.darkhax.tb.lib.Constants;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -18,7 +19,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = Constants.MODID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER, acceptableRemoteVersions = "*")
+@Mod(modid = Constants.MODID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER)
 public class ThirstyBottles {
 
 	@Mod.Instance(Constants.MODID)
@@ -39,11 +40,11 @@ public class ThirstyBottles {
 			IBlockState state = event.getWorld().getBlockState(pos);
 			EntityPlayer player = event.getEntityPlayer();
 
-			if (state != null && state.getBlock() == Blocks.WATER) {
+			if (state != null && state.getBlock() == Blocks.WATER && Blocks.WATER.canCollideCheck(state, true)) {
 				
-				event.getWorld().setBlockToAir(pos);
 				event.getWorld().playSound(player, player.posX, player.posY, player.posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 				event.getEntityPlayer().setHeldItem(event.getHand(), transformBottle(event.getItemStack(), event.getEntityPlayer(), new ItemStack(Items.POTIONITEM)));
+				event.getWorld().setBlockToAir(pos);
 			}
 		}
 	}
