@@ -34,6 +34,9 @@ public class ThirstyBottles {
 	@SubscribeEvent
 	public void onItemUsed(RightClickBlock event) {
 
+		if (event.getWorld().isRemote)
+			return;
+		
 		if (event.getItemStack() != null && event.getItemStack().getItem() instanceof ItemGlassBottle) {
 
 			BlockPos pos = new BlockPos(event.getHitVec());
@@ -54,7 +57,7 @@ public class ThirstyBottles {
 		input.stackSize--;
 		player.addStat(StatList.getObjectUseStats(input.getItem()));
 
-		if (input.stackSize <= 0) {
+		if (input.stackSize < 1) {
 			
 			return stack;
 		} 
