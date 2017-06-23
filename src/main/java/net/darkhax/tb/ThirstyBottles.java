@@ -1,7 +1,5 @@
 package net.darkhax.tb;
 
-import net.darkhax.tb.lib.Constants;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -22,11 +20,8 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = Constants.MODID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER)
+@Mod(modid = "thirstybottles", name = "Thirsty Bottles", version = "@VERSION@")
 public class ThirstyBottles {
-
-	@Mod.Instance(Constants.MODID)
-	public static ThirstyBottles instance;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -60,10 +55,10 @@ public class ThirstyBottles {
 
 	private ItemStack transformBottle(ItemStack input, EntityPlayer player, ItemStack stack) {
 		
-		input.stackSize--;
+		input.shrink(1);
 		player.addStat(StatList.getObjectUseStats(input.getItem()));
 
-		if (input.stackSize < 1) {
+		if (input.getCount() < 1) {
 			
 			return stack;
 		} 
