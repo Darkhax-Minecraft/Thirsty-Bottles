@@ -1,5 +1,8 @@
 package net.darkhax.tb;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,12 +20,15 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBloc
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = "thirstybottles", name = "Thirsty Bottles", version = "@VERSION@")
+@Mod(modid = "thirstybottles", name = "Thirsty Bottles", version = "@VERSION@", certificateFingerprint = "@FINGERPRINT@")
 public class ThirstyBottles {
 
+    private static final Logger LOG = LogManager.getLogger("Thirsty Bottles");
+    
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
@@ -73,4 +79,11 @@ public class ThirstyBottles {
 			return input;
 		}
 	}
+	
+    
+    @EventHandler
+    public void onFingerprintViolation (FMLFingerprintViolationEvent event) {
+
+        LOG.error("Invalid fingerprint detected! The file " + event.getSource().getName() + " may have been tampered with. This version will NOT be supported by the author!");
+    }
 }
