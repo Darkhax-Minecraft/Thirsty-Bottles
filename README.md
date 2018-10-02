@@ -2,7 +2,7 @@
 
 This mod makes bottles of water consume the block of water that they are used on. This mod is useful for preventing water duplication bugs in modpacks where water blocks are not infinite. It also encourages players to use cauldrons for filling their water bottles.
 
-[![Nodecraft](https://i.imgur.com/sz9PUmK.png)](https://nodecraft.com/r/darkhax)    
+[![Nodecraft](https://nodecraft.com/assets/images/logo-dark.png)](https://nodecraft.com/r/darkhax)    
 This project is sponsored by Nodecraft. Use code [Darkhax](https://nodecraft.com/r/darkhax) for 30% off your first month of service!
 
 ## Credits
