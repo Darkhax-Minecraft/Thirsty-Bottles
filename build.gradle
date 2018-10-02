@@ -19,7 +19,7 @@ buildscript {
     dependencies {
 
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.7"
+        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.1.0"
     }
 }
 
@@ -37,9 +37,9 @@ version = getVersionFromJava(file("src/main/java/net/darkhax/tb/lib/Constants.ja
 //Defines the MC environment information.
 minecraft {
 
-    version = "1.10.2-12.18.1.2094"
+    version = "1.11.2-13.20.1.2386"
     runDir = "run"
-    mappings = "stable_29"
+    mappings = "stable_32"
     useDepAts = true
 }
 
@@ -96,7 +96,7 @@ String getVersionFromJava(File file) {
 
     file.write(outfile);
 
-    return "1.10.2-$release.$update.$patch.$build";
+    return "1.11.2-$release.$update.$patch.$build";
 }
 
 //Creates the source jar.
@@ -172,7 +172,7 @@ curseforge {
         releaseType = project.releaseType;
         changelog = project.changelog;
 
-        addGameVersion "1.10.2"
+        addGameVersion "1.11.2"
         
         //Adds main jar, deobf jar, source jar, and javadoc jar to the upload.
         mainArtifact(jar) {

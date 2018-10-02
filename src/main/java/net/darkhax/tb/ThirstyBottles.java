@@ -40,7 +40,7 @@ public class ThirstyBottles {
 		if (event.getWorld().isRemote)
 			return;
 		
-		if (event.getItemStack() != null && event.getItemStack().getItem() instanceof ItemGlassBottle) {
+		if (event.getItemStack() != ItemStack.EMPTY && event.getItemStack().getItem() instanceof ItemGlassBottle) {
 
 			BlockPos pos = new BlockPos(event.getHitVec());
 			IBlockState state = event.getWorld().getBlockState(pos);
@@ -60,10 +60,10 @@ public class ThirstyBottles {
 
 	private ItemStack transformBottle(ItemStack input, EntityPlayer player, ItemStack stack) {
 		
-		input.stackSize--;
+		input.setCount(input.getCount() - 1);
 		player.addStat(StatList.getObjectUseStats(input.getItem()));
 
-		if (input.stackSize < 1) {
+		if (input.getCount() < 1) {
 			
 			return stack;
 		} 
