@@ -36,7 +36,9 @@ public class ThirstyBottles {
 			if (state != null && state.getMaterial() == Material.WATER && (state.getBlock() instanceof IFluidBlock || state.getBlock() instanceof BlockLiquid) && Blocks.WATER.canCollideCheck(state, true)) {
 				
 				event.getWorld().playSound(player, player.posX, player.posY, player.posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);				
-				event.getItemStack().shrink(1);
+				if (!player.isCreative()) {
+				        event.getItemStack().shrink(1);
+				}
 				ItemHandlerHelper.giveItemToPlayer(event.getEntityPlayer(),  PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER));
 				event.getWorld().setBlockToAir(pos);
 			}
