@@ -1,5 +1,7 @@
 package net.darkhax.tb;
 
+import java.io.File;
+
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -23,25 +25,35 @@ import net.minecraftforge.items.ItemHandlerHelper;
 @Mod(modid = "thirstybottles", name = "Thirsty Bottles", version = "@VERSION@", certificateFingerprint = "@FINGERPRINT@")
 @EventBusSubscriber(modid = "thirstybottles")
 public class ThirstyBottles {
-
-	@SubscribeEvent
-	public static void onItemUsed(RightClickBlock event) {
-		
-		if (!event.getWorld().isRemote && event.getItemStack() != null && event.getItemStack().getItem() instanceof ItemGlassBottle) {
-
-			BlockPos pos = new BlockPos(event.getHitVec());
-			IBlockState state = event.getWorld().getBlockState(pos);
-			EntityPlayer player = event.getEntityPlayer();
-			
-			if (state != null && state.getMaterial() == Material.WATER && (state.getBlock() instanceof IFluidBlock || state.getBlock() instanceof BlockLiquid) && Blocks.WATER.canCollideCheck(state, true)) {
-				
-				event.getWorld().playSound(player, player.posX, player.posY, player.posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);				
-				if (!player.isCreative()) {
-				        event.getItemStack().shrink(1);
-				}
-				ItemHandlerHelper.giveItemToPlayer(event.getEntityPlayer(),  PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER));
-				event.getWorld().setBlockToAir(pos);
-			}
-		}
-	}
+    
+    private static ConfigHandler config;
+    
+    public ThirstyBottles() {
+        
+        config = new ConfigHandler(new File("config/thirsty-bottles.cfg"));
+    }
+    
+    @SubscribeEvent
+    public static void onItemUsed (RightClickBlock event) {
+        
+        if (!event.getWorld().isRemote && event.getItemStack().getItem() instanceof ItemGlassBottle) {
+            
+            final BlockPos pos = new BlockPos(event.getHitVec());
+            final IBlockState state = event.getWorld().getBlockState(pos);
+            final EntityPlayer player = event.getEntityPlayer();
+            
+            if (state != null && state.getMaterial() == Material.WATER && (state.getBlock() instanceof IFluidBlock || state.getBlock() instanceof BlockLiquid) && Blocks.WATER.canCollideCheck(state, true)) {
+                
+                event.getWorld().playSound(player, player.posX, player.posY, player.posZ, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+                
+                if (!player.isCreative()) {
+                    
+                    event.getItemStack().shrink(1);
+                }
+                
+                ItemHandlerHelper.giveItemToPlayer(event.getEntityPlayer(), config.getBottle().copy());
+                event.getWorld().setBlockToAir(pos);
+            }
+        }
+    }
 }
