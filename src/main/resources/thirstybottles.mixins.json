@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "package": "net.darkhax.thirstybottles.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "thirstybottles.refmap.json",
+  "mixins": [
+    "MixinGlassBottleItem"
+  ],
+  "minVersion": "0.8"
+}
