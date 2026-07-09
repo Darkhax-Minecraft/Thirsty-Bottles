@@ -3,7 +3,7 @@ package net.darkhax.thirstybottles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Constants {
+public class ThirstyBottles {
 
     public static final String MOD_ID = "thirstybottles";
     public static final String MOD_NAME = "Thirsty Bottles";

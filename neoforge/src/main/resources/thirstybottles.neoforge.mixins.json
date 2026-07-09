@@ -1,0 +1,6 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.darkhax.thirstybottles.mixin",
+    "mixins": []
+}

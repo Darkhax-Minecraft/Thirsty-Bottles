@@ -1,0 +1,23 @@
+{
+  "mod": {
+    "name": "ThirstyBottles",
+    "group": "net.darkhax.thirstybottles",
+    "authors": [
+      "Darkhax"
+    ],
+    "id": "thirstybottles",
+    "license": "ARR",
+    "description": "Bottles will now consume the source block of the fluid they pick up.",
+    "repo": "https://github.com/Darkhax-Minecraft/Thirsty-Bottles",
+    "client": false
+  },
+  "curseforge": {
+    "slug": "thirsty-bottles",
+    "id": "263498"
+  },
+  "modrinth": {
+    "slug": "thirsty-bottles",
+    "id": "F2F7kDiU"
+  },
+  "dependencies": []
+}
