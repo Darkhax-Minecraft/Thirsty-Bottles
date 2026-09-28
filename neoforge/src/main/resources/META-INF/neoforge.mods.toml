@@ -4,12 +4,11 @@ issueTrackerURL = "https://github.com/Darkhax-Minecraft/Thirsty-Bottles/issues"
 
 [[mods]]
 modId = "thirstybottles"
-version = "26.2.0.0"
+version = "26.3.0.0"
 displayName = "ThirstyBottles"
-updateJSONURL = "https://updates.blamejared.com/get?n=thirstybottles&gv=26.2&ml=neoforge"
+updateJSONURL = "https://updates.blamejared.com/get?n=thirstybottles&gv=26.3&ml=neoforge"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/thirsty-bottles"
-logoFile = "logo_thirstybottles.png"
-logoBlur = false
+iconFile = "logo_thirstybottles.png"
 credits = "This project is made possible with Patreon support from players like you. Thank you! lothrazar, techsquirrel, Tobias Ward, noobanidus"
 authors = "Darkhax"
 description = "Bottles will now consume the source block of the fluid they pick up."
@@ -23,14 +22,14 @@ config = "thirstybottles.neoforge.mixins.json"
 [[dependencies.thirstybottles]]
 modId = "minecraft"
 type = "required"
-versionRange = "26.2"
+versionRange = "26.3"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.thirstybottles]]
 modId = "neoforge"
 type = "required"
-versionRange = "[26.2.0.8-beta,)"
+versionRange = "[26.3.0.16-beta,)"
 ordering = "NONE"
 side = "BOTH"
 
